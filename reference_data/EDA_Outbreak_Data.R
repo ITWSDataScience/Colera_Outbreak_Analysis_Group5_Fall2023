@@ -95,7 +95,7 @@ barplot_pop_cat <- ggplot(outbreak_data, aes(x = pop_cat)) +
 # Boxplot for Total Suspected Cases Distribution
 # This boxplot visualizes the spread of the total suspected cases in different outbreaks.
 # It highlights the median, quartiles, and any potential outliers in the suspected cases data.
-boxplot_total_cases <- boxplot_total_cases <- ggplot(outbreak_data, aes(y = total_suspected_cases)) +
+boxplot_total_cases <- ggplot(outbreak_data, aes(y = total_suspected_cases)) +
   geom_boxplot(
     fill = "#4d89f9", color = "black", 
     outlier.color = "red", outlier.shape = 1
