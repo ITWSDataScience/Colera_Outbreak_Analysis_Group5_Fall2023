@@ -14,8 +14,8 @@ def add_lat_lon():
     for index, row in df.iterrows():
         # query location period id from shapefile
         rslt_df = gdf.loc[gdf['lctn_pr'] == row['location_period_id']]
-        lat = rslt_df.get_coordinates().iloc[0].x
-        lon = rslt_df.get_coordinates().iloc[0].y
+        lat = rslt_df.get_coordinates().iloc[0].y
+        lon = rslt_df.get_coordinates().iloc[0].x
         # now add it back to the dataframe
         df.loc[index, 'latitude'] = lat
         df.loc[index, 'longitude'] = lon
