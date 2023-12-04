@@ -92,6 +92,17 @@ barplot_pop_cat <- ggplot(outbreak_data, aes(x = pop_cat)) +
   ylim(0,800) + 
   Rohan_theme
 
+# Bar Plot for Seasonal Distribution
+# This plot compares every season and the number of outbreaks that occur in that season.
+# It helps in understanding if conditions in certain seasons allow for the spread of cholera
+# more easily. Will be useful for later analysis as well.
+barplot_seasons <- ggplot(outbreak_data, aes(x = season)) +
+  geom_bar(fill = "#4d89f9", color = "black") +
+  labs(title = "Cholera Outbreaks by Season",
+       x = "Season",
+       y = "Number of Outbreaks") +
+  Rohan_theme
+
 # Boxplot for Total Suspected Cases Distribution
 # This boxplot visualizes the spread of the total suspected cases in different outbreaks.
 # It highlights the median, quartiles, and any potential outliers in the suspected cases data.
@@ -144,10 +155,12 @@ boxplot_duration <- ggplot(outbreak_data, aes(y = duration)) +
     axis.ticks.x = element_blank() # Hide the x-axis ticks
   )
 
+
 histogram_total_cases
 histogram_duration
 barplot_country
 barplot_pop_cat
+barplot_seasons
 boxplot_total_cases
 boxplot_duration
 
@@ -155,12 +168,9 @@ boxplot_duration
 # Summary Statistics
 summary_stats <- outbreak_data %>% select(total_suspected_cases, duration, total_deaths) %>% summary()
 
-# Correlation Analysis
-correlation_analysis <- cor(outbreak_data$total_suspected_cases, outbreak_data$duration, use="complete.obs")
-
 # Output the results
 print(summary_stats)
-print(correlation_analysis)
+
 
 
 
